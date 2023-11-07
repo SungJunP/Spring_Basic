@@ -1,9 +1,9 @@
 # Spring_Basic
 
 1. 환경설정
-1-1. spring boot 2.7.6버전 사용 (3버전 이후는 java 17버전 사용해야함)
-1-2. java 11 버전사용
-1-3. gradle 사용 -> 현직에서 메이븐보다 더 많이 사용
+<p>1-1. spring boot 2.7.6버전 사용 (3버전 이후는 java 17버전 사용해야함)</p>
+<p>1-2. java 11 버전사용</p>
+<p>1-3. gradle 사용 -> 현직에서 메이븐보다 더 많이 사용</p>
 1-3-1.intellij에서 build.gradle 실행하여 프로젝트 생성
 1-3-2.setting에서 gradle설정을 gradle -> intellij로 변경해 줘야 실행속도가 더 빠름
 1-4. 스프링 부트 라이브러리
