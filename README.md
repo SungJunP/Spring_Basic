@@ -10,12 +10,14 @@
 <p>1-4-1. 톰캣, 스프링MVC, 타임리프 템플릿 엔진, 스프링부트 + 스프링 코어 + 로깅 포함</p>
 <p>1-5. 테스트 라이브러리</p>
 <p>1-5-1. junit(test framework), mockito(목 라이브러리) assertj(테스트 코드를 편하게 작성 라이브러리), spring-test(스프링 통합 테스트 지원)</p>
-<br>
+
+
 2. 정적 콘텐츠
 resources/static 폴더 안에 html 파일을 넣으면 정적 페이지 출력
 웹 브라우저에서 http://localhost:9090/hello-static.html 를 넣으면 톰캣 서버에서 스프링으로 요청을 넘김, 컨트롤러안에서 hello-static이 있는지 찾고 없으면 resources의 static(정적)폴더 내부에 hello-static이 있는지 찾고 웹 브라우저로 응답
 - controller에 hello-static.html mapping이 있으면 해당 요청을 우선적으로 처리하여 resources 내부 파일은 응답되지 않음
-<br>
+
+
 3. MVC와 템플릿 엔진
 MVC : model, view, controller
 과거에는 jsp에 모조리 때려박는 방식으로 controller와 view를 같이 쓰는 MVC1방식 사용
@@ -24,7 +26,8 @@ thymeleaf 템플릿 장점 : vscode같이 html을 그냥 쓰고 서버없이 열
 html주소로 연결하면 p태그 문자가 출력되고 서버연결후 요청하면 p태그 안 th:text= 안의 값이 출력됨
 웹 브라우저에서 http://localhost:9090/hello-static.html 를 넣으면 톰캣 서버에서 스프링으로 요청을 넘김, 컨트롤러안에서 hello-static이 있는지 찾고 mapping되어 있으면 return: hello-static / model(name:spring) 리턴값과 모델의 키와벨류값을 스프링으로 넘겨줌.
 스프링은 viewResolver가 동작하여 return값과 같은 이름을 찾아서 thymeleaf 템플릿 엔진에 넣으면 렌더링을 해서 변환이 된 html을 브라우저에 반환함
-<br>
+
+
 4. API 방식
 @ResponseBody ->응답의 바디에 데이터를 직접 넣어주겠다
 default json방식으로 데이터 전달
@@ -35,7 +38,8 @@ httpMessageConverter가 동작을함. 단순 문자면 StringConverter가 동작
 스프링은 default jackson 라이브러리를 사용하여 변환함
 gson도 사용 가능
 Http Accept 헤더와 서버의 컨트롤러 반환 타입 정보 둘을 조합하여 HttpMessageConverter가 선택됨
-<br>
+
+
 5. 회원 관리 예제 - 비즈니스 요구사항 정리
 컨트롤러 : 웹 MVC의 컨트롤러 역할
 서비스 : 핵심 비즈니스 로직 구현
@@ -45,7 +49,8 @@ Http Accept 헤더와 서버의 컨트롤러 반환 타입 정보 둘을 조합�
 인터페이스에 구현 클래스 설계
 저장소 사용 보류
 구현체로 메모리 기반 저장소 사용
-<br>
+
+
 6.Junit 테스트 케이스 작성
 main 메서드를 통해 실행하거나 웹 컨트롤러를 통해 실행하는건 실행하는데 오래걸리고 반복실행하기 어려운 문제가 있다. 자바는 Junit 프레임워크로 테스트를 실행해서 이러한 문제를 해결한다.
 import static 에 클래스명.* 임포트 해주면 해당 클래스를 기입하지 않고도 메소드를 사용할 수 있다.
@@ -54,7 +59,8 @@ Test 클래스는 패키지를 묶어서 한번에 실행 가능
 모든 테스트는 순서가 보장 되지 않는다. 그러므로 서로 의존관계가 없도록 테스트가 끝날때마다 객체나 공용 데이터를 비워주는 코드를 작성해 줘야 함 @AfterEach 어노테이션으로 매 테스트 실행마다 실행될 코드를 작성 가능
 TDD -> 테스트 주도 개발 : 테스트 클래스를 먼저 작성하고 기능을 구현하는것. 틀을 먼저 만들고 구현 클래스를 만들어 돌려 보는것
 TDD(Test-Driven-Development) 방법론에 대하여…
-<br>
+
+
 7.회원서비스 개발
 서비스클래스는 비즈니스 의존적으로 네이밍 설계 레포지토리는 좀더 개발관점으로 네이밍
 optional로 감싸면 optional 안에 멤버객체가 있는 것 null이 있는 자료의 경우 많이 사용
@@ -63,7 +69,8 @@ intellij 단축키 팁
 컨트롤 알트 v 하면 자동으로 속성과 변수 작성
 컨트롤 알트 쉬프트 t하면 refactor 자동완성 메뉴 나옴 extract method선택하면 메소드로 생성해줌 -> 기능이 있는 코드를 메소드로 분리해 낼때 사용
 컨트롤 알트 t -> 테스트케이스 자동 완성
-<br>
+
+
 8.회원 서비스 테스트
 테스트 클래스는 한글로 메소드를 적어 직관적으로 관리해도 좋음
 테스트 설계 팁
@@ -71,7 +78,8 @@ given 무언가 주어졌을때
 when 이걸 실행했을때
 then 이런결과가 나와야해
 try catch 대신 assertThrows()로 예외처리
-<br>
+
+
 9.스프링 빈을 등록하는 방법
 컴포넌트 스캔과 자동 의존관계 설정
 컴포넌트 스캔이 @Component라는 어노테이션을 찾아 해당 클래스의 인스턴스를 만들어 bean으로 등록
@@ -90,7 +98,8 @@ setter주입 -> 객체를 생성했을때 set메소드 자체가 퍼블릭하게
 정형화 된 컨트롤러, 서비스, 리포지토리 같은 코드는 컴포넌트 스캔 사용한다.
 정형화 되지 않거나 상황에 따라 구현 클래스를 변경해야하면 설정파일의 수정을 통해 스프링빈으로 등록한다. 직접 스프링빈을 등록하는 경우 이렇게 설정만 조금 수정해주면 변경을 쉽게 할 수 있다.
 ex) 가상메모리 상태인 Repository를 실제 db에 연결하는 경우
-<br>
+
+
 10.스프링부트에서 그래들을 사용하여 순수 JDBC DRIVER연동
 build.gradle에 설정정보(의존성)을 주입해 준다.
 implementation 'org.springframework.boot:spring-boot-starter-jdbc'/*
@@ -109,23 +118,27 @@ jdbc url을 jdbc:h2:tcp://localhost/~/test로 수정
 application.properties에서 spring.datasource.username=sa 주입
 주입하지않으면 스프링부트 2.4 버전 이후 name오류 발생 주의
 cmd창 종료하면 자동으로 DBMS연결 종료
-<br>
+
+
 11.스프링의 장점
 스프링의 DI (Dependencies Injection)을 사용하면 기존 코드를 전혀 손대지 않고, 설정만으로 구현 클래스를 변경할 수 있다.
 기능을 완전히 변경해도 조립하는코드만 수정하고 실제 어플리케이션 수행에 필요한 코드를 하나도 변경하지 않고도 변경가능하다. 이게 OCP 개방폐쇄원칙을 지킨것
 기능확장에는 열려있고, 실제코드의 수정이나 변경에는 닫혀있다.
-<br>
+
+
 12.스프링 통합 테스트
 @SpringBootTest : 스프링 컨테이너와 테스트를 함께 실행한다.
 @Transactional : 테스트 케이스에 이 어노테이션이 있으면, 테스트 시작 전에 트랜잭션을 시작하고, 테스트 완료 후에 항상 롤백한다. 이렇게 하면 DB에 데이터가 남지 않으므로 다음 테스트에 영향을 주지않는다
 test에 @Commit 어노테이션 사용하면 커밋 해 버림
 순수히게 단위단위 자른 테스트가 좋은 테스트일 확률이 높다. spring으로 서버를 올려서 테스트하는것 보다 스프링의 도움없이 순수한 테스트를 작성하여 잘 돌아가도록 설계하는것이 좋을 수 있다.
-<br>
+
+
 13.스프링 JdbcTemplate
 JdbcTemplate을 사용하면 jdbc 코드를 현저히 줄일 수 있음
 Template Method 디자인 패턴으로 코드를 줄인 라이브러리
 스프링 JdbcTemplate과 MyBatis 같은 라이브러리는 JDBC API에서 본 반복 코드를 대부분 제거해준다. 하지만 SQL은 직접 작성해 줘야 함
-<br>
+
+
 14.JPA!!
 jpa는 기존 반복코드는 물론이고 기본적인 sql도 jpa가 직접 만들어 실행해줌
 sql과 객체중심 설계에서 객체중심 설계로 패러다임 전환을 할 수 있다.
@@ -150,7 +163,8 @@ proxy기술로 등록
 기본적인 crud 기능이 모두 JpaRepository에 만들어져 있음
 findByName() , findByEmail() 처럼 메서드 이름 만으로 조회 기능 제공
 페이징 기능 자동 제공
-<br>
+
+
 16.AOP
 AOP는 공통적으로 사용해야하는 공통 관심 사항 코드가 많을때 묶어서 사용하기위해 사용한다.
 공통 관심 사항(cross-cutting concern) vs 핵심 관심 사항(core concern) 분리
