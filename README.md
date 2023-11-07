@@ -4,12 +4,12 @@
 <p>1-1. spring boot 2.7.6버전 사용 (3버전 이후는 java 17버전 사용해야함)</p>
 <p>1-2. java 11 버전사용</p>
 <p>1-3. gradle 사용 -> 현직에서 메이븐보다 더 많이 사용</p>
-1-3-1.intellij에서 build.gradle 실행하여 프로젝트 생성
-1-3-2.setting에서 gradle설정을 gradle -> intellij로 변경해 줘야 실행속도가 더 빠름
-1-4. 스프링 부트 라이브러리
-1-4-1. 톰캣, 스프링MVC, 타임리프 템플릿 엔진, 스프링부트 + 스프링 코어 + 로깅 포함
-1-5. 테스트 라이브러리
-1-5-1. junit(test framework), mockito(목 라이브러리) assertj(테스트 코드를 편하게 작성 라이브러리), spring-test(스프링 통합 테스트 지원)
+<p>1-3-1.intellij에서 build.gradle 실행하여 프로젝트 생성</p>
+<p>1-3-2.setting에서 gradle설정을 gradle -> intellij로 변경해 줘야 실행속도가 더 빠름</p>
+<p>1-4. 스프링 부트 라이브러리</p>
+<p>1-4-1. 톰캣, 스프링MVC, 타임리프 템플릿 엔진, 스프링부트 + 스프링 코어 + 로깅 포함</p>
+<p>1-5. 테스트 라이브러리</p>
+<p>1-5-1. junit(test framework), mockito(목 라이브러리) assertj(테스트 코드를 편하게 작성 라이브러리), spring-test(스프링 통합 테스트 지원)</p>
 
 2. 정적 콘텐츠
 resources/static 폴더 안에 html 파일을 넣으면 정적 페이지 출력
